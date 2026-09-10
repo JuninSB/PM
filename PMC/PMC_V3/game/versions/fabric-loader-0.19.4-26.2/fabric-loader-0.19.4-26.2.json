@@ -1,0 +1,46 @@
+{
+  "inheritsFrom": "26.2",
+  "id": "fabric-loader-0.19.4-26.2",
+  "time": "2026-08-26T14:50:32-03:00",
+  "releaseTime": "2026-08-26T14:50:32-03:00",
+  "type": "release",
+  "libraries": [
+    {
+      "name": "org.ow2.asm:asm:9.10.1",
+      "url": "https://maven.fabricmc.net/"
+    },
+    {
+      "name": "org.ow2.asm:asm-analysis:9.10.1",
+      "url": "https://maven.fabricmc.net/"
+    },
+    {
+      "name": "org.ow2.asm:asm-commons:9.10.1",
+      "url": "https://maven.fabricmc.net/"
+    },
+    {
+      "name": "org.ow2.asm:asm-tree:9.10.1",
+      "url": "https://maven.fabricmc.net/"
+    },
+    {
+      "name": "org.ow2.asm:asm-util:9.10.1",
+      "url": "https://maven.fabricmc.net/"
+    },
+    {
+      "name": "net.fabricmc:sponge-mixin:0.17.4+mixin.0.8.7",
+      "url": "https://maven.fabricmc.net/"
+    },
+    {
+      "name": "net.fabricmc:fabric-loader:0.19.4",
+      "url": "https://maven.fabricmc.net/"
+    }
+  ],
+  "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotClient",
+  "minimumLauncherVersion": 0,
+  "downloads": {},
+  "arguments": {
+    "game": [],
+    "jvm": [
+      "-DFabricMcEmu= net.minecraft.client.main.Main "
+    ]
+  }
+}

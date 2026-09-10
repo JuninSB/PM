@@ -1,0 +1,50 @@
+/mv delete world --remove-players
+/mv confirm 411
+/login juniojr9
+/login 2206@22jr9
+/login 2206@22Jr9
+/tps
+/restart
+/login 2206@22Jr9
+/time set minecraft:day
+/hardcore:conclude
+/difficulty hard
+/gamerule hardcode
+/help hardcore:conclude
+/plugins
+/help hardcore
+/conclude
+/execute in minecraft:overworld run gamerule hardcore true
+/execute in minecraft:overworld run gamerule locator_bar true
+/time set day
+/mv create plano normal --world-type flat
+/mvtp mike_junin plano --silent
+/geyser version
+/enchant @a minecraft:lunge 3
+/execute at mike_junin s
+/execute as mike_junin run summon minecraft:acacia_boat
+/give @s minecraft:command_block 1
+/execute as @e run summon minecraft:acacia_boat
+/kill @e
+/time set day
+/execute as @e run summon minecraft:acacia_boat
+/kill @e[type=minecraft:acacia_boat]
+/give @s minecraft:command_block 1
+/kill @e[type=minecraft:acacia_boat]
+/kill @e
+/time set day
+/kill @e
+/kill @e[type=minecraft:warden]
+/kill @e[type=minecraft:acacia_boat]
+/give @s minecraft:command_block 1
+/kill @e[type=minecraft:acacia_boat]
+/kill @e[type=minecraft:warden]
+/kill @e[type=minecraft:slime]
+/kill @e[type=minecraft:warden]
+/summon minecraft:warden 12.79 -60.00 49.27 {NoAi:1}
+/summon minecraft:warden 12.79 -60.00 49.27 {NoAia:1}
+/summon minecraft:warden 12.79 -60.00 49.27
+/mv delete plano --remove-players
+/mv confirm 956
+/login 2206@22Jr9
+/register 2206@22Jr9 2206@22Jr9

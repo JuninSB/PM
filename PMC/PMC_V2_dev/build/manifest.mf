@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: pmc.launcher.PmcLauncher
+Class-Path: game/sklauncher/javafx/javafx-base-22.0.2-win.jar game/sklauncher/javafx/javafx-controls-22.0.2-win.jar game/sklauncher/javafx/javafx-graphics-22.0.2-win.jar game/sklauncher/javafx/javafx-media-22.0.2-win.jar game/sklauncher/javafx/javafx-swing-22.0.2-win.jar game/sklauncher/javafx/javafx-web-22.0.2-win.jar
+

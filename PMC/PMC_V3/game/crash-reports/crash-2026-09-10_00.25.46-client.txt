@@ -1,0 +1,599 @@
+---- Minecraft Crash Report ----
+// You're mean.
+
+Time: 2026-09-10 00:25:46
+Description: Client shutdown from post-main
+
+java.lang.Error: Watchdog (Client shutdown from post-main)
+	at knot//net.minecraft.server.dedicated.ServerWatchdog.createWatchdogCrashReport(ServerWatchdog.java:83)
+	at knot//com.mojang.blaze3d.platform.ClientShutdownWatchdog.lambda$startShutdownWatchdog$0(ClientShutdownWatchdog.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client shutdown watchdog #1
+Stacktrace:
+	at knot//net.minecraft.server.dedicated.ServerWatchdog.createWatchdogCrashReport(ServerWatchdog.java:83)
+
+-- Thread Dump --
+Details:
+	Threads: 
+"DestroyJavaVM" prio=5 Id=80 RUNNABLE
+
+
+"pool-2-thread-1" prio=5 Id=37 TIMED_WAITING
+	at java.base@25.0.1/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base@25.0.1/java.lang.Thread.sleepNanos(Thread.java:509)
+	at java.base@25.0.1/java.lang.Thread.sleep(Thread.java:540)
+	at app//com.sklauncher.injector.RichPresence$DiscordThread.run(RichPresence.java:109)
+	at java.base@25.0.1/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base@25.0.1/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@4a058df8
+
+
+"Attach Listener" daemon prio=5 Id=14 RUNNABLE
+
+
+"Client shutdown watchdog #1" daemon prio=5 Id=78 RUNNABLE
+	at java.management@25.0.1/sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at java.management@25.0.1/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:505)
+	at java.management@25.0.1/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:493)
+	at knot//net.minecraft.util.Util.dumpThreadInfo(Util.java:495)
+	at knot//net.minecraft.server.dedicated.ServerWatchdog.createWatchdogCrashReport(ServerWatchdog.java:79)
+	at knot//com.mojang.blaze3d.platform.ClientShutdownWatchdog.lambda$startShutdownWatchdog$0(ClientShutdownWatchdog.java:44)
+	at knot//com.mojang.blaze3d.platform.ClientShutdownWatchdog$$Lambda/0x00000000272639b0.run(Unknown Source)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+
+
+"HttpClient-1-SelectorManager" daemon prio=5 Id=53 RUNNABLE (in native)
+	at java.base@25.0.1/sun.nio.ch.WEPoll.wait(Native Method)
+	at java.base@25.0.1/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:108)
+	at java.base@25.0.1/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:130)
+	-  locked sun.nio.ch.Util$2@3a02c2a5
+	-  locked sun.nio.ch.WEPollSelectorImpl@9ea2278
+	at java.base@25.0.1/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:142)
+	at platform/java.net.http@25.0.1/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:1338)
+
+
+"Notification Thread" daemon prio=9 Id=25 RUNNABLE
+
+
+"Read-Poller" daemon prio=5 Id=54 RUNNABLE (in native)
+	at java.base@25.0.1/sun.nio.ch.WEPoll.wait(Native Method)
+	at java.base@25.0.1/sun.nio.ch.WEPollPoller.poll(WEPollPoller.java:61)
+	at java.base@25.0.1/sun.nio.ch.Poller.pollerLoop(Poller.java:248)
+	at java.base@25.0.1/sun.nio.ch.Poller$Pollers$$Lambda/0x0000000026ed5f50.run(Unknown Source)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+	at java.base@25.0.1/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:148)
+
+
+"Reference Handler" daemon prio=10 Id=11 RUNNABLE
+	at java.base@25.0.1/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+	at java.base@25.0.1/java.lang.ref.Reference.processPendingReferences(Reference.java:246)
+	at java.base@25.0.1/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:208)
+
+
+"Signal Dispatcher" daemon prio=9 Id=13 RUNNABLE
+
+
+"VirtualThread-unblocker" daemon prio=5 Id=49 RUNNABLE
+	at java.base@25.0.1/java.lang.VirtualThread.takeVirtualThreadListToUnblock(Native Method)
+	at java.base@25.0.1/java.lang.VirtualThread.unblockVirtualThreads(VirtualThread.java:1507)
+	at java.base@25.0.1/java.lang.VirtualThread$$Lambda/0x0000000026ecf1f8.run(Unknown Source)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+	at java.base@25.0.1/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:148)
+
+
+"Write-Poller" daemon prio=5 Id=55 RUNNABLE (in native)
+	at java.base@25.0.1/sun.nio.ch.WEPoll.wait(Native Method)
+	at java.base@25.0.1/sun.nio.ch.WEPollPoller.poll(WEPollPoller.java:61)
+	at java.base@25.0.1/sun.nio.ch.Poller.pollerLoop(Poller.java:248)
+	at java.base@25.0.1/sun.nio.ch.Poller$Pollers$$Lambda/0x0000000026ed65e8.run(Unknown Source)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+	at java.base@25.0.1/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:148)
+
+
+"Finalizer" daemon prio=8 Id=12 WAITING on java.lang.ref.ReferenceQueue$Lock@4fe01815
+	at java.base@25.0.1/java.lang.Object.wait0(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@4fe01815
+	at java.base@25.0.1/java.lang.Object.wait(Object.java:389)
+	at java.base@25.0.1/java.lang.Object.wait(Object.java:351)
+	at java.base@25.0.1/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:137)
+	at java.base@25.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:215)
+	at java.base@25.0.1/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:165)
+
+
+"Sound engine" daemon prio=5 Id=77 WAITING on java.lang.String@55512aa6
+	at java.base@25.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.lang.String@55512aa6
+	at java.base@25.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:223)
+	at knot//net.minecraft.client.sounds.SoundEngineExecutor.waitForTasks(SoundEngineExecutor.java:58)
+	at knot//net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:158)
+	at knot//net.minecraft.client.sounds.SoundEngineExecutor.run(SoundEngineExecutor.java:51)
+	at knot//net.minecraft.client.sounds.SoundEngineExecutor$$Lambda/0x0000000026fd8ed8.run(Unknown Source)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+
+
+"Common-Cleaner" daemon prio=8 Id=20 TIMED_WAITING on java.lang.ref.ReferenceQueue$Lock@330ff1ec
+	at java.base@25.0.1/java.lang.Object.wait0(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@330ff1ec
+	at java.base@25.0.1/java.lang.Object.wait(Object.java:389)
+	at java.base@25.0.1/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:123)
+	at java.base@25.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:201)
+	at java.base@25.0.1/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:146)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+	at java.base@25.0.1/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:148)
+
+
+"Download-1" daemon prio=5 Id=44 TIMED_WAITING on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:408)
+	at java.base@25.0.1/java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1015)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+
+
+"Download-2" daemon prio=5 Id=45 TIMED_WAITING on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:408)
+	at java.base@25.0.1/java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1015)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+
+
+"Download-3" daemon prio=5 Id=62 TIMED_WAITING on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:408)
+	at java.base@25.0.1/java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1015)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+
+
+"Download-4" daemon prio=5 Id=63 TIMED_WAITING on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:408)
+	at java.base@25.0.1/java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1015)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+
+
+"Download-5" daemon prio=5 Id=64 TIMED_WAITING on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:408)
+	at java.base@25.0.1/java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1015)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+
+
+"Download-6" daemon prio=5 Id=65 TIMED_WAITING on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:408)
+	at java.base@25.0.1/java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1015)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+
+
+"Download-7" daemon prio=5 Id=66 TIMED_WAITING on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:408)
+	at java.base@25.0.1/java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1015)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+
+
+"Download-8" daemon prio=5 Id=67 TIMED_WAITING on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$Transferer@32a85b1a
+	at java.base@25.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:408)
+	at java.base@25.0.1/java.util.concurrent.LinkedTransferQueue$DualNode.await(LinkedTransferQueue.java:452)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue$Transferer.xferLifo(SynchronousQueue.java:194)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.xfer(SynchronousQueue.java:235)
+	at java.base@25.0.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:338)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1015)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+
+
+"ForkJoinPool.commonPool-worker-1" daemon prio=5 Id=73 TIMED_WAITING on java.util.concurrent.ForkJoinPool@79ead8d4
+	at java.base@25.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@79ead8d4
+	at java.base@25.0.1/java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:2109)
+	at java.base@25.0.1/java.util.concurrent.ForkJoinPool.deactivate(ForkJoinPool.java:2063)
+	at java.base@25.0.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2027)
+	at java.base@25.0.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)
+
+
+"JNA Cleaner" daemon prio=5 Id=36 TIMED_WAITING on java.lang.ref.ReferenceQueue$Lock@48080557
+	at java.base@25.0.1/java.lang.Object.wait0(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@48080557
+	at java.base@25.0.1/java.lang.Object.wait(Object.java:389)
+	at java.base@25.0.1/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:123)
+	at java.base@25.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:201)
+	at app//com.sun.jna.internal.Cleaner$CleanerThread.run(Cleaner.java:154)
+
+
+"JNA Cleaner" daemon prio=5 Id=40 TIMED_WAITING on java.lang.ref.ReferenceQueue$Lock@310bc33f
+	at java.base@25.0.1/java.lang.Object.wait0(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@310bc33f
+	at java.base@25.0.1/java.lang.Object.wait(Object.java:389)
+	at java.base@25.0.1/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:123)
+	at java.base@25.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:201)
+	at knot//com.sun.jna.internal.Cleaner$CleanerThread.run(Cleaner.java:154)
+
+
+"Timer hack thread" daemon prio=5 Id=41 TIMED_WAITING
+	at java.base@25.0.1/java.lang.Thread.sleepNanos0(Native Method)
+	at java.base@25.0.1/java.lang.Thread.sleepNanos(Thread.java:509)
+	at java.base@25.0.1/java.lang.Thread.sleep(Thread.java:540)
+	at knot//net.minecraft.util.Util$9.run(Util.java:1047)
+
+
+"Yggdrasil Key Fetcher" daemon prio=5 Id=43 TIMED_WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@7ee455bb
+	at java.base@25.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@7ee455bb
+	at java.base@25.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:271)
+	at java.base@25.0.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1803)
+	at java.base@25.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1166)
+	at java.base@25.0.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:883)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1016)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1076)
+	at java.base@25.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base@25.0.1/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.1/java.lang.Thread.run(Thread.java:1474)
+
+
+Stacktrace:
+	at knot//net.minecraft.server.dedicated.ServerWatchdog.createWatchdogCrashReport(ServerWatchdog.java:83)
+	at knot//com.mojang.blaze3d.platform.ClientShutdownWatchdog.lambda$startShutdownWatchdog$0(ClientShutdownWatchdog.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+-- Client watchdog shutdown details --
+Details:
+	Modules: 
+		ADVAPI32.dll:API de base do Windows 32 avançada:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		AUDIOSES.DLL:Sessão de Áudio:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		AVRT.dll:Tempo de Execução de Multimídia em Tempo Real:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		CFGMGR32.dll:Configuration Manager DLL:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		COMCTL32.dll:Biblioteca de Controles de Experiência do Usuário:6.10 (WinBuild.160101.0800):Microsoft Corporation
+		COMDLG32.dll:DLL de diálogos comuns:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		CRYPT32.dll:Crypto API32:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		CRYPTBASE.dll:Base cryptographic API DLL:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		CRYPTSP.dll:Cryptographic Service Provider API:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		CoreMessaging.dll:Microsoft CoreMessaging Dll:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		CoreUIComponents.dll:Microsoft Core UI Components Dll:10.0.26100.8972:Microsoft Corporation
+		DBGHELP.DLL:Windows Image Helper:10.0.26100.8328 (WinBuild.160101.0800):Microsoft Corporation
+		DEVOBJ.dll:Device Information Set DLL:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		DNSAPI.dll:DLL da API de cliente DNS:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		DSPARSE.dll:Active Directory Domain Services API:10.0.26100.1 (WinBuild.160101.0800):Microsoft Corporation
+		DWrite.dll:Serviços de Tipografia de DirectX da Microsoft:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		GDI32.dll:GDI Client DLL:10.0.26100.8328 (WinBuild.160101.0800):Microsoft Corporation
+		GLU32.dll:DLL da biblioteca de utilitários OpenGL:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		IMM32.DLL:Multi-User Windows IMM32 API Client DLL:10.0.26100.8521 (WinBuild.160101.0800):Microsoft Corporation
+		IPHLPAPI.DLL:API de Auxiliar de IP:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		KERNEL32.DLL:DLL cliente da API BASE do Windows NT:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		KERNELBASE.dll:DLL cliente da API BASE do Windows NT:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		MMDevApi.dll:API do MMDevice:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		MSACM32.dll:Filtro de áudio do gerenciador de compactação de áudio da Microsoft:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		MSCTF.dll:DLL de servidor MSCTF:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		MSOXMLMF.DLL:Microsoft Office XML MIME Filter:16.0.11929.20048:Microsoft Corporation
+		MSTTSEngine_OneCore.dll:::
+		MSTTSLoc_OneCore.DLL:::
+		MpOav.dll:IOfficeAntiVirus Module:4.18.26080.3 (9e1f3147fbc83f18a98a965394a23e07747d7295):Microsoft Corporation
+		NSI.dll:NSI User-mode interface DLL:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		NTASN1.dll:Microsoft ASN.1 API:10.0.26100.1 (WinBuild.160101.0800):Microsoft Corporation
+		OLEAUT32.dll:OLEAUT32.DLL:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		OpenAL.dll:Main implementation library:1.25.1:
+		POWRPROF.dll:DLL do Auxiliar do Perfil de Energia:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		PROPSYS.dll:Sistema de Propriedades  Microsoft:7.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		PSAPI.DLL:Process Status Helper:10.0.26100.8521 (WinBuild.160101.0800):Microsoft Corporation
+		Pdh.dll:DLL auxiliar de dados de desempenho do Windows:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		RPCRT4.dll:Tempo de Execução da Chamada de Procedimento Remoto:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		SHCORE.dll:SHCORE:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		SHELL32.dll:DLL comum do Shell do Windows:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		SspiCli.dll:Security Support Provider Interface:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		UMPDC.dll:User Mode Power Dependency Coordinator:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		USER32.dll:DLL de cliente API de usuário Windows para multiusuários:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		USERENV.dll:Userenv:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		USP10.dll:Uniscribe Unicode script processor:10.0.26100.1 (WinBuild.160101.0800):Microsoft Corporation
+		VCRUNTIME140.dll:Microsoft® C Runtime Library:14.44.35208.0:Microsoft Corporation
+		VERSION.dll:Version Checking and File Installation Libraries:10.0.26100.1150 (WinBuild.160101.0800):Microsoft Corporation
+		WINHTTP.dll:Windows HTTP Services:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		WINMM.dll:MCI API DLL:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		WINSTA.dll:Winstation Library:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		WS2_32.dll:DLL de 32 bits do Windows Socket 2.0:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		Windows.ApplicationModel.dll:Servidor da API Windows ApplicationModel:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		Windows.UI.dll:Windows Runtime UI Foundation DLL:10.0.26100.7840 (WinBuild.160101.0800):Microsoft Corporation
+		Wtsapi32.dll:Windows Remote Desktop Session Host Server SDK APIs:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		amsi.dll:Anti-Malware Scan Interface:10.0.26100.7309 (WinBuild.160101.0800):Microsoft Corporation
+		bcrypt.dll:Biblioteca de Primitivos Criptografados do Windows:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		bcryptPrimitives.dll:Windows Cryptographic Primitives Library:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		clbcatq.dll:COM+ Configuration Catalog:2001.12.10941.16384 (WinBuild.160101.0800):Microsoft Corporation
+		combase.dll:Microsoft COM para Windows:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		dbgcore.DLL:Windows Core Debugging Helpers:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		dinput8.dll:Microsoft DirectInput:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		directxdatabasehelper.dll:DirectXDatabaseHelper:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		discord-rpc.dll
+		dwmapi.dll:API do Gerenciador de Janelas da Área de Trabalho Microsoft:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		dxcore.dll:DXCore:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		dxgi.dll:DirectX Graphics Infrastructure:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		extnet.dll:OpenJDK Platform binary:25.0.1.0:Microsoft
+		fastprox.dll:WMI Custom Marshaller:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		freetype.dll:Font Rendering Library:2.14.1:The FreeType Project
+		fwpuclnt.dll:API de Modo de Usuário FWP/IPsec:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		gdi32full.dll:GDI Client DLL:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		glfw.dll:GLFW 3.5.0 DLL:3.5.0:GLFW
+		icm32.dll:Microsoft Color Management Module (CMM):10.0.26100.2314 (WinBuild.160101.0800):Microsoft Corporation
+		iertutil.dll:Executar utilitário de tempo do Internet Explorer:11.00.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		ig9icd64.dll:OpenGL(R) Driver for Intel(R) Graphics Accelerator:26.20.100.7212:Intel Corporation
+		igc64.dll:Intel Graphics Shader Compiler for Intel(R) Graphics Accelerator:26.20.100.7212:Intel Corporation
+		inputhost.dll:InputHost:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		instrument.dll:OpenJDK Platform binary:25.0.1.0:Microsoft
+		java.dll:OpenJDK Platform binary:25.0.1.0:Microsoft
+		javaw.exe:OpenJDK Platform binary:25.0.1.0:Microsoft
+		jemalloc.dll
+		jimage.dll:OpenJDK Platform binary:25.0.1.0:Microsoft
+		jli.dll:OpenJDK Platform binary:25.0.1.0:Microsoft
+		jna2903965748110647372.dll:JNA native library:7.0.2:Java(TM) Native Access (JNA)
+		jna7442273819929738308.dll:JNA native library:7.0.2:Java(TM) Native Access (JNA)
+		jvm.dll:OpenJDK 64-Bit server VM:25.0.1.0:Microsoft
+		kernel.appcore.dll:AppModel API Host:10.0.26100.8737 (WinBuild.160101.0800):Microsoft Corporation
+		lwjgl.dll
+		lwjgl_opengl.dll
+		lwjgl_stb.dll
+		lwjgl_tinyfd.dll
+		lwjgl_vma.dll
+		management.dll:OpenJDK Platform binary:25.0.1.0:Microsoft
+		management_ext.dll:OpenJDK Platform binary:25.0.1.0:Microsoft
+		midimap.dll:Microsoft MIDI Mapper:10.0.26100.1882 (WinBuild.160101.0800):Microsoft Corporation
+		msacm32.drv:Mapeador de som da Microsoft:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		mscms.dll:DLL do Sistema de Correspondência de Cores Microsoft:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		msvcp110_win.dll:Microsoft® STL110 C++ Runtime Library:10.0.26100.7019 (WinBuild.160101.0800):Microsoft Corporation
+		msvcp140.dll:Microsoft® C Runtime Library:14.44.35208.0:Microsoft Corporation
+		msvcp_win.dll:Microsoft® C Runtime Library:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		msvcrt.dll:Windows NT CRT DLL:7.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		mswsock.dll:Provedor de serviços do Microsoft Windows Sockets 2.0:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		msxml6.dll:MSXML 6.0:6.30.26100.8972:Microsoft Corporation
+		napinsp.dll:Provedor de Correção de Nomeação de Emails:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		ncrypt.dll:Roteador NCrypt do Windows:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		net.dll:OpenJDK Platform binary:25.0.1.0:Microsoft
+		netutils.dll:Net Win32 API Helpers DLL:10.0.26100.1882 (WinBuild.160101.0800):Microsoft Corporation
+		nio.dll:OpenJDK Platform binary:25.0.1.0:Microsoft
+		nlansp_c.dll:NLA Namespace Service Provider DLL:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		ntdll.dll:DLL de nível do NT:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		ntmarta.dll:Provedor MARTA do Windows NT:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		ole32.dll:Microsoft OLE para Windows:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		opengl32.dll:OpenGL Client DLL:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		perfos.dll:DLL de objetos de desempenho de sistema do Windows:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		perfproc.dll:DLL de objetos de desempenho de processo do sistema Windows:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		pfclient.dll:SysMain Client:10.0.26100.4202 (WinBuild.160101.0800):Microsoft Corporation
+		profapi.dll:User Profile Basic API:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		rasadhlp.dll:Remote Access AutoDial Helper:10.0.26100.7920 (WinBuild.160101.0800):Microsoft Corporation
+		resourcepolicyclient.dll:Resource Policy Client:10.0.26100.8115 (WinBuild.160101.0800):Microsoft Corporation
+		rsaenh.dll:Microsoft Enhanced Cryptographic Provider:10.0.26100.1 (WinBuild.160101.0800):Microsoft Corporation
+		sapi.dll:API de Fala:5.3.31910.00 (WinBuild.160101.0800):Microsoft Corporation
+		sapi_onecore.dll:Speech API:5.3.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		sechost.dll:Host for SCM/SDDL/LSA Lookup APIs:10.0.26100.1 (WinBuild.160101.0800):Microsoft Corporation
+		shaderc.dll
+		shlwapi.dll:Biblioteca de utilitário abreviado para Shell:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		spirv-cross.dll
+		srvcli.dll:Server Service Client DLL:10.0.26100.1150 (WinBuild.160101.0800):Microsoft Corporation
+		sunmscapi.dll:OpenJDK Platform binary:25.0.1.0:Microsoft
+		textinputframework.dll:"TextInputFramework.DYNLINK":10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		ucrtbase.dll:Microsoft® C Runtime Library:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		urlmon.dll:Extensões OLE32 para Win32:11.00.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		uxtheme.dll:Biblioteca UxTheme Microsoft:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		vcruntime140_1.dll:Microsoft® C Runtime Library:14.44.35208.0:Microsoft Corporation
+		verify.dll:OpenJDK Platform binary:25.0.1.0:Microsoft
+		virtdisk.dll:Virtual Disk API DLL:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		vulkan-1.dll:Vulkan Loader:1.3.300.0:
+		wbemcomn.dll:WMI:10.0.26100.7920 (WinBuild.160101.0800):Microsoft Corporation
+		wbemprox.dll:WMI:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		wbemsvc.dll:WMI:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		wdmaud.drv:Driver de sistema de áudio Winmm:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		wdmaud2.drv:Driver de interface de serviço do Windows MIDI Services WinMM:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		win32u.dll:Win32u:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		windows.staterepositorycore.dll:Windows StateRepository API Core:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		windows.storage.dll:API de Armazenamento Microsoft WinRT:10.0.26100.8972 (WinBuild.160101.0800):Microsoft Corporation
+		winmmbase.dll:Base Multimedia Extension API DLL:10.0.26100.1 (WinBuild.160101.0800):Microsoft Corporation
+		winrnr.dll:LDAP RnR Provider DLL:10.0.26100.8737 (WinBuild.160101.0800):Microsoft Corporation
+		wintypes.dll:DLL dos Tipos de Base do Windows:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		wshbth.dll:Windows Sockets Helper DLL:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		wshunix.dll:AF_UNIX Winsock2 Helper DLL:10.0.26100.1 (WinBuild.160101.0800):Microsoft Corporation
+		xinput1_4.dll:API do Controlador Comum da Microsoft:10.0.26100.8875 (WinBuild.160101.0800):Microsoft Corporation
+		zip.dll:OpenJDK Platform binary:25.0.1.0:Microsoft
+Stacktrace:
+	at knot//com.mojang.blaze3d.platform.ClientShutdownWatchdog.lambda$startShutdownWatchdog$0(ClientShutdownWatchdog.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+-- System Details --
+Details:
+	Minecraft Version: 26.2
+	Minecraft Version ID: 26.2
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 25.0.1, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Microsoft
+	Memory: 208930112 bytes (199 MiB) / 587202560 bytes (560 MiB) up to 2097152000 bytes (2000 MiB)
+	Memory (heap): init: 064MiB, used: 354MiB, committed: 560MiB, max: 2000MiB
+	Memory (non-head): init: 007MiB, used: 178MiB, committed: 180MiB, max: 000MiB
+	CPUs: 4
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i3-6006U CPU @ 2.00GHz
+	Identifier: Intel64 Family 6 Model 78 Stepping 3
+	Microarchitecture: Skylake (Client)
+	Frequency (GHz): 1.99
+	Number of physical packages: 1
+	Number of physical CPUs: 2
+	Number of logical CPUs: 4
+	Graphics card #0 name: Intel(R) HD Graphics 520
+	Graphics card #0 vendor: Intel Corporation
+	Graphics card #0 VRAM (MiB): 1024.00
+	Graphics card #0 deviceId: VideoController1
+	Graphics card #0 versionInfo: 26.20.100.7212
+	Memory slot #0 capacity (MiB): 4096.00
+	Memory slot #0 clockSpeed (GHz): 1.60
+	Memory slot #0 type: DDR3
+	Virtual memory max (MiB): 9106.22
+	Virtual memory used (MiB): 4783.88
+	Swap memory total (MiB): 5120.00
+	Swap memory used (MiB): 553.70
+	Space in storage for jna.tmpdir (MiB): available: 125837.95, total: 227863.00
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): available: 125837.95, total: 227863.00
+	Space in storage for io.netty.native.workdir (MiB): available: 125837.95, total: 227863.00
+	Space in storage for java.io.tmpdir (MiB): available: 125837.95, total: 227863.00
+	Space in storage for workdir (MiB): available: 125837.95, total: 227863.00
+	Operating System Version: Microsoft Windows 11 build 26200
+	Process Elevated: false
+	Process Loads: Uptime: 104s, user: 137s (131.88%), kernel: 13s (12.37%), total: 150s (144.25%)
+	Process Virtual Size (MiB): 35.58
+	Process Resident Size (MiB): 764.23
+	JVM Flags: 8 total; -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M -Xmx1993m -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Debug Flags: 0 total; 
+	Fabric Mods: 
+		appleskin: AppleSkin 3.0.10+mc26.2
+		entityculling: EntityCulling 1.10.5
+			transition: TRansition 1.0.21
+			trender: TRender 1.0.15
+		fabric-api: Fabric API 0.158.0+26.2
+			fabric-api-base: Fabric API Base 2.0.4+ece063239e
+			fabric-api-lookup-api-v1: Fabric API Lookup API (v1) 2.0.17+11e1c9a39e
+			fabric-biome-api-v1: Fabric Biome API (v1) 18.0.6+c7bd5b8e9e
+			fabric-block-api-v1: Fabric Block API (v1) 3.0.3+ec56b6019e
+			fabric-block-getter-api-v2: Fabric BlockGetter API (v2) 2.0.7+ec56b6019e
+			fabric-command-api-v2: Fabric Command API (v2) 3.1.0+00cb03469e
+			fabric-content-registries-v0: Fabric Content Registries (v0) 11.3.1+37b1aa249e
+			fabric-convention-tags-v2: Fabric Convention Tags (v2) 4.7.0+1f023a9e9e
+			fabric-crash-report-info-v1: Fabric Crash Report Info (v1) 1.0.5+086d547a9e
+			fabric-creative-tab-api-v1: Fabric Creative Tab API (v1) 5.0.14+d871b99e9e
+			fabric-data-attachment-api-v1: Fabric Data Attachment API (v1) 2.2.18+515ac5339e
+			fabric-data-generation-api-v1: Fabric Data Generation API (v1) 25.5.0+aed122aa9e
+			fabric-debug-api-v1: Fabric Debug API (v1) 1.0.2+c792624d9e
+			fabric-dimensions-v1: Fabric Dimensions API (v1) 5.1.11+515ac5339e
+			fabric-entity-events-v1: Fabric Entity Events (v1) 5.0.5+06488ac19e
+			fabric-events-interaction-v0: Fabric Events Interaction (v0) 5.2.7+515ac5339e
+			fabric-game-rule-api-v1: Fabric Game Rule API (v1) 4.0.8+46a6d00c9e
+			fabric-item-api-v1: Fabric Item API (v1) 14.5.0+c68f6cbe9e
+			fabric-key-mapping-api-v1: Fabric Key Mapping API (v1) 2.0.5+e2bdee789e
+			fabric-lifecycle-events-v1: Fabric Lifecycle Events (v1) 4.1.3+4575b05f9e
+			fabric-loot-api-v3: Fabric Loot API (v3) 3.0.17+06488ac19e
+			fabric-menu-api-v1: Fabric Menu API (v1) 2.0.16+086d547a9e
+			fabric-message-api-v1: Fabric Message API (v1) 7.0.8+bb2ed3f79e
+			fabric-model-loading-api-v1: Fabric Model Loading API (v1) 8.0.16+c80601bb9e
+			fabric-networking-api-v1: Fabric Networking API (v1) 6.3.3+72073ef09e
+			fabric-object-builder-api-v1: Fabric Object Builder API (v1) 24.1.0+6fcd5f039e
+			fabric-particles-v1: Fabric Particles (v1) 5.0.18+d1756aa99e
+			fabric-permission-api-v1: Fabric Permission API (v1) 1.0.5+e442d8d09e
+			fabric-recipe-api-v1: Fabric Recipe API (v1) 9.0.20+11e1c9a39e
+			fabric-registry-sync-v0: Fabric Registry Sync (v0) 7.1.0+c7bd5b8e9e
+			fabric-renderer-api-v1: Fabric Renderer API (v1) 14.1.3+2b0d8a229e
+			fabric-renderer-indigo: Fabric Renderer - Indigo 9.1.3+2b0d8a229e
+			fabric-rendering-fluids-v1: Fabric Rendering Fluids (v1) 6.0.4+06488ac19e
+			fabric-rendering-v1: Fabric Rendering (v1) 25.3.2+515ac5339e
+			fabric-resource-conditions-api-v1: Fabric Resource Conditions API (v1) 6.1.0+10e9a28b9e
+			fabric-resource-loader-v0: Fabric Resource Loader (v0) 3.3.20+4fc5413f9e
+			fabric-resource-loader-v1: Fabric Resource Loader (v1) 2.0.13+9edec1269e
+			fabric-screen-api-v1: Fabric Screen API (v1) 5.2.0+58e078ad9e
+			fabric-serialization-api-v1: Fabric Serialization API (v1) 2.0.4+11a26f319e
+			fabric-sound-api-v1: Fabric Sound API (v1) 2.0.5+11a26f319e
+			fabric-tag-api-v1: Fabric Tag API (v1) 2.1.4+515ac5339e
+			fabric-transfer-api-v1: Fabric Transfer API (v1) 8.0.12+11dbb7d79e
+			fabric-transitive-access-wideners-v1: Fabric Transitive Access Wideners (v1) 8.1.4+67c847259e
+		fabricloader: Fabric Loader 0.19.4
+			mixinextras: MixinExtras 0.5.4
+		ferritecore: FerriteCore 9.0.0
+		immediatelyfast: ImmediatelyFast 1.16.3+26.2
+		java: OpenJDK 64-Bit Server VM 25
+		lithium: Lithium 0.25.3+mc26.2
+		minecraft: Minecraft 26.2
+		modmenu: Mod Menu 20.0.1
+		mousetweaks: Mouse Tweaks 2.31
+		placeholder-api: Placeholder API 3.1.0-beta.1+26.2
+		sodium: Sodium 0.9.1+mc26.2
+		sodium-extra: Sodium Extra 0.9.3+mc26.2
+			me_flashyreese_mods_greenlight-api: greenlight-api 0.1.0+mc26.2
+	Launched Version: fabric-loader-0.19.4-26.2
+	Launcher name: java-minecraft-launcher
+	Backend library: LWJGL version 3.4.1-snapshot
+	Window size: <not initialized>
+	Surface Info: <no surface>
+	GFLW Platform: win32
+	Graphics Device: Intel(R) HD Graphics 520
+	Graphics Backend: OpenGL
+	Graphics Vendor: Intel
+	Graphics Drivers: 3.3.0 - Build 26.20.100.7212
+	Graphics Device Extensions: GL_ARB_multi_draw_indirect, GL_ARB_buffer_storage, GL_ARB_shader_draw_parameters, GL_ARB_base_instance, GL_KHR_debug, GL_ARB_draw_indirect, GL_ARB_clip_control, GL_ARB_vertex_attrib_binding, GL_ARB_direct_state_access, GL_EXT_texture_filter_anisotropic
+	Graphics Device Type: INTEGRATED
+	Graphics Device Features: DeviceFeatures[shaderDrawParameters=true, multiDrawDirectInterleaved=false, multiDrawDirectSeparate=true, multiDrawIndirect=true, drawIndirect=true, nonZeroFirstInstance=true, persistentMapping=true]
+	GL debug messages: 
+	Is Modded: Definitely; Client brand changed to 'fabric'
+	Universe: 404
+	Type: Client
+	Locale: pt_BR
+	System encoding: Cp1252
+	File encoding: UTF-8
+	CPU: 4x Intel(R) Core(TM) i3-6006U CPU @ 2.00GHz

@@ -1,0 +1,34 @@
+{
+  "profiles": {
+    "0e785e3f81d747dfb5599f2df15a4c4b": {
+      "name": "",
+      "type": "latest-snapshot",
+      "created": "2026-08-26T23:50:44-03:00",
+      "lastUsed": "2026-08-26T23:50:44-03:00"
+    },
+    "fd904e87cb73489eb6e3a7051fe1d307": {
+      "name": "Minecraft 26.2",
+      "lastVersionId": "fabric-loader-0.19.4-26.2",
+      "resolution": {
+        "width": 854,
+        "height": 480,
+        "fullscreen": false
+      },
+      "type": "custom",
+      "created": "2026-08-27T08:58:38-03:00",
+      "lastUsed": "2026-09-10T00:57:35-03:00",
+      "icon": "Diamond_Block"
+    },
+    "62260621097946a4be83bfb80754ed18": {
+      "name": "",
+      "type": "latest-release",
+      "created": "2026-08-26T23:50:44-03:00",
+      "lastUsed": "2026-08-26T23:50:44-03:00"
+    }
+  },
+  "selectedProfile": "fd904e87cb73489eb6e3a7051fe1d307",
+  "settings": {
+    "profileSorting": "byName"
+  },
+  "version": 6
+}
